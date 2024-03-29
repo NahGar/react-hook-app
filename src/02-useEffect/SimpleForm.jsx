@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Message } from "./Message";
 
 export const SimpleForm = () => {
 
@@ -10,7 +11,7 @@ export const SimpleForm = () => {
     const { username, email } = formState;
 
     const onInputChange = (event) => {
-
+        /*
         if( event.target.name == "username") {
             setFormState({
                 ...formState,
@@ -20,10 +21,33 @@ export const SimpleForm = () => {
         if( event.target.name == "email") {
             setFormState({
                 ...formState,
-                email: event.target.value    
+                email: event.target.value
             });
         }
+        */
+        //  o se puede hacer asi
+        //  [ event.target.name ] equivale a username: o email: 
+        setFormState({
+            ...formState,
+            [ event.target.name ]: event.target.value,
+        });
     }
+
+    useEffect( () => {
+        console.log("Se ejecuta al crear el componente y por única vez");
+    }, []);
+
+    useEffect( () => {
+        console.log("Se cambió el estado");
+    }, [formState]);
+
+    useEffect( () => {
+        console.log("Se cambió el email");
+    }, [email]);
+
+    useEffect( () => {
+        console.log("Se cambió el usuario");
+    }, [username]);
 
     return (
         <>
@@ -37,6 +61,11 @@ export const SimpleForm = () => {
                 value={username}
                 onChange={ onInputChange }
             />
+            {
+                (username === 'pepe2') && <Message />
+            }
+            
+
             <input 
                 type="email"
                 className="form-control mt-2"
@@ -45,7 +74,6 @@ export const SimpleForm = () => {
                 value={email}
                 onChange={ onInputChange }
             />
-
         </>
     )
 }

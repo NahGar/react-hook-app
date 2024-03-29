@@ -4,4 +4,9 @@ body {
 
 button {
     margin-right: 5px;
+    margin-top: 8px;
+}
+
+input {
+    margin-top: 8px;
 }
