@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 
 /*
 //export const PokemonCard = ( { id, name, sprites = [] } ) => {
@@ -23,9 +23,16 @@ export const PokemonCard = ( {info} ) => {
 
 export const PokemonCard = ( {id, name, sprites = [] } ) => {
     
+    const pRef = useRef();
+    
+
+    useLayoutEffect( () => {
+        pRef.current.getBoundingClientRect();
+    },[name]);
+
     return (
         <section style={{ height: 300 }} >
-          <h2 className='text-capitalize'>#{id} - {name}</h2>
+          <h2 ref={ pRef } className='text-capitalize'>#{id} - {name}</h2>
         
           <div>
             { 
