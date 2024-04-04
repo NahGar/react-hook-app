@@ -28,11 +28,11 @@ export const PokemonCard = ( {id, name, sprites = [] } ) => {
           <h2 className='text-capitalize'>#{id} - {name}</h2>
         
           <div>
-            <img src={ sprites.back_default } style={{ height: 200 }} />
-            <img src={ sprites.back_shiny } style={{ height: 200 }} />
-            <img src={ sprites.front_default } style={{ height: 200 }} />
-            <img src={ sprites.front_shiny } style={{ height: 200 }} />
-            
+            { 
+                sprites.map( sprite => (
+                    <img key={ sprite } src={ sprite } style={{ height: 200 }} alt={ name } />
+                )) 
+            }
           </div>
         </section>
     )

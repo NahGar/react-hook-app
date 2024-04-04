@@ -1,11 +1,11 @@
 import React from 'react'
 import { useCounter, useFetch } from '../hooks';
-import { LoadingMessage } from './LoadingMessage';
-import { PokemonCard } from './PokemonCard';
+import { LoadingMessage } from '../03-examples/LoadingMessage';
+import { PokemonCard } from '../03-examples/PokemonCard';
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 
-export const MultipleCustomHook = () => {
+export const Layout = () => {
 
     const { counter, increment, decrement } = useCounter( 1 );
 
@@ -33,3 +33,4 @@ export const MultipleCustomHook = () => {
         </>
     )
 }
+
