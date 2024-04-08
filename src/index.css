@@ -10,3 +10,7 @@ button {
 input {
     margin-top: 8px;
 }
+
+.inline {
+    display: inline;
+}
