@@ -14,3 +14,7 @@ input {
 .inline {
     display: inline;
 }
+
+.spanPointer {
+    cursor: pointer;
+}
