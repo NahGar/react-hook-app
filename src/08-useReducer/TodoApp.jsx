@@ -1,19 +1,19 @@
-import { useCallback, useEffect, useReducer } from "react"
-import { todoReducer } from "./todoReducer";
-import { uuidGen } from "../shared/uuidGen";
-import { dateTimeToString } from "../shared/dateTimeToString";
+//import { useCallback, useEffect, useReducer } from "react"
+//import { todoReducer } from "./todoReducer";
+//import { uuidGen } from "../shared/uuidGen";
+//import { dateTimeToString } from "../shared/dateTimeToString";
 import { TodoList } from "./TodoList";
 import { TodoAdd } from "./TodoAdd";
-import { useTodo } from "../hooks/useTodo";
+import { useTodos } from "../hooks";
 
 export const TodoApp = () => {
 
-    const {todos, handleAddTodo, handleDeleteTodo, 
-           handleDoneTodo} = useTodo();
+    const {todos, todosCount, todosPendCount, handleAddTodo, handleDeleteTodo, 
+           handleDoneTodo} = useTodos();
 
     return (
         <>
-            <h1>TodoApp ({ todos === null ? 0 : todos.length }), <small>pendientes: { todos === null ? 0: todos.filter( (todo) => todo.done === false ).length }</small></h1>
+            <h1>TodoApp ({ todosCount }), <small>pendientes: { todosPendCount }</small></h1>
             <hr />
             
             <div className="row">

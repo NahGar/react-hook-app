@@ -1,16 +1,16 @@
 import { useEffect, useReducer } from "react";
 import { todoReducer } from "../08-useReducer/todoReducer";
 
+/*
 const initialState = [
-    /*
     {
         id: uuidGen(),
         dateCreation: dateTimeToString(Date.now()),
         description: 'Recolectar la piedra del alma',
         done: false
     }
-    */
 ]
+*/
 
 const init = () => {
     //const init = localStorage.getItem("Todos");
@@ -23,9 +23,9 @@ const init = () => {
     return JSON.parse( localStorage.getItem("Todos") ) || []; 
 }
 
-export const useTodo = ( ) => {
+export const useTodos = () => {
 
-    const [ todos, dispatchTodo ] = useReducer( todoReducer, initialState, init );
+    const [ todos, dispatchTodo ] = useReducer( todoReducer, [], init );
         
     useEffect( () => {
         localStorage.setItem( "Todos", JSON.stringify(todos) );
@@ -59,6 +59,8 @@ export const useTodo = ( ) => {
 
     return {
         todos,
+        todosCount: todos === null ? 0 : todos.length,
+        todosPendCount: todos === null ? 0: todos.filter( (todo) => !todo.done ).length,
         handleAddTodo,
         handleDeleteTodo,
         handleDoneTodo

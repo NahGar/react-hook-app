@@ -18,3 +18,7 @@ input {
 .spanPointer {
     cursor: pointer;
 }
+
+a {
+    margin-left: 5px;
+}
