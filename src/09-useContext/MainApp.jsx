@@ -1,3 +1,4 @@
+import { UserProvider } from './context/UserProvider';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './HomePage';
 import { LoginPage } from './LoginPage';
@@ -6,8 +7,7 @@ import { NavBar } from './NavBar';
 
 export const MainApp = () => {
   return (
-    <>
-        <h1>MainApp</h1>
+    <UserProvider>
         <NavBar />
         <hr/>
 
@@ -21,6 +21,6 @@ export const MainApp = () => {
             { /* Si la url no existe lo envía al About pero sin utilizar el componente */ }
             <Route path="/*" element={ <Navigate to="/about" /> } />
         </Routes>
-    </>
+    </UserProvider>
   )
 }
