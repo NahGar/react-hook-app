@@ -23,13 +23,14 @@ export const MultipleCustomHook = () => {
                     data.sprites.back_shiny,
                     data.sprites.front_default,
                     data.sprites.front_shiny 
-                ]} /> } 
+                ]} /> 
+            } 
 
             { /*data !== null && <h2>{ data.name }</h2>*/ }
             { /*data !== null && <pre>{ JSON.stringify( data, null, 2)}</pre>*/ }
 
-            <button onClick={ () => counter > 1 && decrement()  } className='btn btn-primary'>Anterior</button> 
-            <button onClick={ () => increment() } className='btn btn-primary'>Siguiente</button> 
+            <button onClick={ () => counter > 1 && decrement() } className='btn btn-primary' disabled={isLoading}>Anterior</button> 
+            <button onClick={ () => increment() } className='btn btn-primary' disabled={isLoading}>Siguiente</button> 
         </>
     )
 }

@@ -39,7 +39,7 @@ export const useFetch = ( url ) => {
         const resp = await fetch( url );
 
         //sleep para que se vea el Cargando...
-        await new Promise( resolve => setTimeout( resolve, 200 ) );
+        await new Promise( resolve => setTimeout( resolve, 2000 ) );
 
         if( !resp.ok ) {
             setState({
@@ -55,6 +55,7 @@ export const useFetch = ( url ) => {
         }
 
         const data = await resp.json();
+        console.log(data);
         setState({
             data,
             isLoading: false,
