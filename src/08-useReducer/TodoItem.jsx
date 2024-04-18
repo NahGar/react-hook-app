@@ -10,8 +10,9 @@ export const TodoItem = ({ todo, handleDeleteTodo, handleDoneTodo }) => {
     return (
         <li className="list-group-item d-flex justify-content-between">
             <span 
-                className={`align-self-center spanPointer ${ todo.done ? "text-decoration-line-through" : null}`}
-                onDoubleClick={ () => handleDeleteTodo && handleDoneTodo( todo.id ) }>
+                className={`align-self-center spanPointer ${ todo.done ? "text-decoration-line-through" : ""}`}
+                onDoubleClick={ () => handleDeleteTodo && handleDoneTodo( todo.id ) } 
+                aria-label="span">
                     {todo.description} (creado {todo.dateCreation})
             </span>
             <button className="btn btn-danger" onClick={ () => handleDeleteTodo && handleDeleteTodo( todo.id ) }>Borrar</button>
