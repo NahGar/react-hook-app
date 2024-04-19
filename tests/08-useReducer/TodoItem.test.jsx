@@ -60,7 +60,7 @@ describe('Pruebas en <TodoItem />', () => {
         //screen.debug();
     });
 
-    test('button debe de llamar mockHandleDeleteTodo', () => {
+    test('button debe de llamar handleDeleteTodo', () => {
 
         render( <TodoItem todo={todo} handleDeleteTodo={mockHandleDeleteTodo} handleDoneTodo={mockHandleDoneTodo} /> );
 
@@ -70,6 +70,6 @@ describe('Pruebas en <TodoItem />', () => {
 
         expect( mockHandleDeleteTodo ).toHaveBeenCalledWith( todo.id );
 
-        screen.debug();
+        //screen.debug();
     });
 });
